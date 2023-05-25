@@ -42,6 +42,9 @@ diffbot:
     # Top level frame (link) of the robot description
     base_frame_id: base_footprint
 
+    # #Publish to TF directly or not
+    enable_odom_tf: false
+
     # Velocity and acceleration limits for the robot
     linear:
       x:

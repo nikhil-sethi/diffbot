@@ -4,6 +4,16 @@
   <!-- ros_control plugin -->
   <xacro:macro name="gazebo_ros_control" params="robotNamespace robotSimType:=gazebo_ros_control/DefaultRobotHWSim"> 
     <gazebo>
+      <plugin name="p3d_base_controller" filename="libgazebo_ros_p3d.so">
+        <alwaysOn>true</alwaysOn>
+        <updateRate>50.0</updateRate>
+        <bodyName>base_footprint</bodyName>
+        <topicName>gazebo/odom_gt</topicName>
+        <gaussianNoise>0.0</gaussianNoise>
+        <frameName>map</frameName>
+        <xyzOffsets>0 0 0</xyzOffsets>
+        <rpyOffsets>0 0 0</rpyOffsets>
+      </plugin>
       <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
         <robotNamespace>${robotNamespace}</robotNamespace>
         <!--robotParam>/robot_description</robotParam-->
